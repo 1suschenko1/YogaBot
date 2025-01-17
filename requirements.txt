@@ -1,0 +1,7 @@
+aiogram==3.17.0
+apscheduler
+sqlalchemy
+langchain_community==0.0.5
+psycopg2
+langchain
+gigachat
