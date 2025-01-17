@@ -1,21 +1,23 @@
 import asyncio
 from aiogram import Bot, Dispatcher
+from aiogram.client.bot import DefaultBotProperties  # Для настройки parse_mode в aiogram 3.x
 from config import BOT_TOKEN
-from handlers.registration import registration_router
-
-# Создаем бота и диспетчер
-bot = Bot(token=BOT_TOKEN)
-dp = Dispatcher()
-
-# Регистрация маршрутов
-dp.include_router(registration_router)
+from handlers import registration_router, menu_router
 
 async def main():
-    try:
-        print("Бот запущен.")
-        await dp.start_polling(bot)  # Ожидание запуска polling
-    except Exception as e:
-        print(f"Ошибка при запуске бота: {e}")
+    # Инициализируем бота с parse_mode="HTML" в aiogram 3.x
+    bot = Bot(
+        token=BOT_TOKEN,
+        default=DefaultBotProperties(parse_mode="HTML")
+    )
+    dp = Dispatcher()
+
+    # Подключаем роутеры
+    dp.include_router(registration_router)
+    dp.include_router(menu_router)
+
+    print("Бот запущен. Ожидаем сообщения...")
+    await dp.start_polling(bot)
 
 if __name__ == "__main__":
-    asyncio.run(main())  # Запуск события с использованием asyncio
+    asyncio.run(main())
