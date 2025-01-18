@@ -1,0 +1,21 @@
+# config.py
+
+BOT_TOKEN = "7431744705:AAGHT-QU9Cmtuxi6QB4KMgwpMjjzwiG2MLs"
+
+POSTGRES_DB = "bot_db"
+POSTGRES_USER = "postgres"
+POSTGRES_PASSWORD = "Ilya2005"
+POSTGRES_HOST = "localhost"
+POSTGRES_PORT = 5432
+
+SQLALCHEMY_DATABASE_URI = (
+    f"postgresql://{POSTGRES_USER}:{POSTGRES_PASSWORD}"
+    f"@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DB}"
+)
+
+# --- ЗАМЕНЯЕМ на новые значения! ---
+GIGACHAT_CLIENT_ID = "e6c45130-9714-40b2-9815-772a56e88c59"
+GIGACHAT_CLIENT_SECRET = "4d1b5fc3-0e69-4bdd-b608-cf3ac1287e3a"
+
+# Если хотите хранить base64-ключ целиком:
+GigaChatKey = "ZTZjNDUxMzAtOTcxNC00MGIyLTk4MTUtNzcyYTU2ZTg4YzU5OjRkMWI1ZmMzLTBlNjktNGJkZC1iNjA4LWNmM2FjMTI4N2UzYQ=="
